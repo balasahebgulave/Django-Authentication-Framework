@@ -4,6 +4,10 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate
 
+
+
+
+
 # custom View for SignUp
 def register(request):
     if request.method == 'POST':
@@ -18,7 +22,9 @@ def register(request):
 
     else: 
         form = UserForm()
-    return render (request , 'base.html' , {'form':form})
+    return render (request , 'register.html' , {'form':form})
+
+
 
 # django model for SignUp
 
@@ -41,3 +47,7 @@ def register(request):
 #     return render(request, 'register.html', {'form': form})
 
 # Create your views here.
+
+
+def home(request):
+    return render (request , 'base.html')

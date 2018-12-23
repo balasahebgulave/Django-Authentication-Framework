@@ -2,13 +2,16 @@
 <html>
     <head>
         <title></title>
+        <link href="static/css/bootstrap.min.css" rel="stylesheet">
     </head>
+    <div class = ''container style = 'background-color: lightgreen; text-align: center; height:100px; padding:10%'>
     <body>
-        <form action="", method="post">
+        <form action="{% url 'home' %}", method="post">
             {{form.as_p}}
             {% csrf_token %}
             <!-- <p><input type="submit" value = 'login'></p> -->
-            <button type = 'submit' >login</button>
+            <button type = 'submit' style = background-color:lightgreen>login</button>
         </form>
     </body>
+</div>
 </html>
