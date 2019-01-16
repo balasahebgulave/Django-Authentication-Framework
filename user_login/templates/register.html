@@ -1,9 +1,11 @@
+
 <!--
 Author: Colorlib
 Author URL: https://colorlib.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,32 +31,28 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<h1>Creative SignUp Form</h1>
 		<div class="main-agileinfo">
 			<div class="agileits-top">
-				<form action="" method="post">
-					<!-- <input class="text" type="text" name="Username" placeholder="Username" required="">
-					<input class="text email" type="email" name="email" placeholder="Email" required=""><br>
-                    <input class="text" type="text" name="first_name" placeholder="First Name" required=""><br>
-                    <input class="text" type="text" name="last_name" placeholder="Last Name" required=""><br>
-                    <input class="text" type="password" name="password" placeholder="Password" required=""><br>
-                    <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required=""> -->
-					{{ form.as_p}}
-					
-                    {% csrf_token %}
-                    <div class="wthree-text">
-						<label class="anim">
-							<input type="checkbox" class="checkbox" required="">
-							<span>I Agree To The Terms & Conditions</span>
-						</label>
-						<div class="clear"> </div>
-					</div>
-					<input type="submit" value="register">
-				</form>
-				<p>Don't have an Account? <a href="{% url 'login' %}"> Login Now!</a></p>
+				<h2>Sign up</h2>
+  <form method="post">
+    
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        <!-- {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %} -->
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    {% csrf_token %}
+    <br><button type="submit">Sign up</button>
+  </form>
 			</div>
 		</div>
 		<!-- copyright -->
-		<div class="colorlibcopy-agile">
-			<p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
-		</div>
+		
 		<!-- //copyright -->
 		<ul class="colorlib-bubbles">
 			<li></li>
